@@ -66,6 +66,23 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 #    include "lib/oledkit/oledkit.h"
 
+// Custom OLED display rotation
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    // Rotated the OLED 270 degree, i.e. vertical display for easier reading.
+    return OLED_ROTATION_270;
+}
+
+// Custom logo
+// TODO: Implement custom logo.
+//       Notes:
+//         - Vertical display
+//         - Screen size is 128 * 32
+//         - Logical screen size is 32 * 128.
+/* void oledkit_render_logo_user(void) {
+
+} */
+
+// TODO: Override all the info rendering to fit our custom screen rotation.
 void oledkit_render_info_user(void) {
     keyball_oled_render_keyinfo();
     keyball_oled_render_ballinfo();
